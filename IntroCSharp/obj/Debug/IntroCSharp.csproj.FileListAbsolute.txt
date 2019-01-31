@@ -1,7 +1,0 @@
-C:\Users\s189065\source\repos\IntroCSharp\IntroCSharp\bin\Debug\IntroCSharp.exe.config
-C:\Users\s189065\source\repos\IntroCSharp\IntroCSharp\bin\Debug\IntroCSharp.exe
-C:\Users\s189065\source\repos\IntroCSharp\IntroCSharp\bin\Debug\IntroCSharp.pdb
-C:\Users\s189065\source\repos\IntroCSharp\IntroCSharp\obj\Debug\IntroCSharp.csprojAssemblyReference.cache
-C:\Users\s189065\source\repos\IntroCSharp\IntroCSharp\obj\Debug\IntroCSharp.csproj.CoreCompileInputs.cache
-C:\Users\s189065\source\repos\IntroCSharp\IntroCSharp\obj\Debug\IntroCSharp.exe
-C:\Users\s189065\source\repos\IntroCSharp\IntroCSharp\obj\Debug\IntroCSharp.pdb
