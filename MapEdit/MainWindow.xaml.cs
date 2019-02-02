@@ -38,16 +38,29 @@ namespace MapEdit
         private void Tiles_MouseUp(object sender, MouseButtonEventArgs e)
         {
             //(Tile_Options.SelectedItem as ListBoxItem).Content;
-            SolidColorBrush b = (SolidColorBrush)(Tile_Options.SelectedItem as ListBoxItem).Background;
-            /*var ee = (UIElement)e.Source;
+            /*SolidColorBrush b = (SolidColorBrush)(Tile_Options.SelectedItem as ListBoxItem).Background;
+            var ee = (UIElement)e.Source;
             int c = Grid.GetColumn(ee);
             int r = Grid.GetRow(ee);*/
 
-            var label = e.Source as UIElement;
+            if(Tile_Options.SelectedItem == null)
+            {
+                return;
+            }
+
+            SolidColorBrush b = (SolidColorBrush)(Tile_Options.SelectedItem as ListBoxItem).Background;
+
+            var label = e.Source as Label;
+            if(label == null)
+            {
+                return;
+            }
             var row = Grid.GetRow(label);
             var col = Grid.GetColumn(label);
 
+            int indexNumber = ((int)(row * 8) + col);
 
+            (Tiles.Children[indexNumber] as Label).Background = b;
         }
     }
 }

@@ -39,196 +39,196 @@
                     <ColumnDefinition Width="48*"/>
                     <ColumnDefinition Width="48*"/>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Row="0" Grid.Column="0" MouseDown="Label_MouseDown">
+                <Label Grid.Row="0" Grid.Column="0">
                     Label 0, 0
                 </Label>
-                <Label Grid.Row="0" Grid.Column="1" MouseDown="Label_MouseDown">
+                <Label Grid.Row="0" Grid.Column="1">
                     Label 0, 1
                 </Label>
-                <Label Grid.Row="0" Grid.Column="2" MouseDown="Label_MouseDown">
+                <Label Grid.Row="0" Grid.Column="2">
                     Label 0, 2
                 </Label>
-                <Label Grid.Row="0" Grid.Column="3" MouseDown="Label_MouseDown">
+                <Label Grid.Row="0" Grid.Column="3">
                     Label 0, 3
                 </Label>
-                <Label Grid.Row="0" Grid.Column="4" MouseDown="Label_MouseDown">
+                <Label Grid.Row="0" Grid.Column="4">
                     Label 0, 4
                 </Label>
-                <Label Grid.Row="0" Grid.Column="5" MouseDown="Label_MouseDown">
+                <Label Grid.Row="0" Grid.Column="5">
                     Label 0, 5
                 </Label>
-                <Label Grid.Row="0" Grid.Column="6" MouseDown="Label_MouseDown">
+                <Label Grid.Row="0" Grid.Column="6">
                     Label 0, 6
                 </Label>
-                <Label Grid.Row="0" Grid.Column="7" MouseDown="Label_MouseDown">
+                <Label Grid.Row="0" Grid.Column="7">
                     Label 0, 7
                 </Label>
-                <Label Grid.Row="1" Grid.Column="0" MouseDown="Label_MouseDown">
+                <Label Grid.Row="1" Grid.Column="0">
                     Label 1, 0
                 </Label>
-                <Label Grid.Row="1" Grid.Column="1" MouseDown="Label_MouseDown">
+                <Label Grid.Row="1" Grid.Column="1">
                     Label 1, 1
                 </Label>
-                <Label Grid.Row="1" Grid.Column="2" MouseDown="Label_MouseDown">
+                <Label Grid.Row="1" Grid.Column="2">
                     Label 1, 2
                 </Label>
-                <Label Grid.Row="1" Grid.Column="3" MouseDown="Label_MouseDown">
+                <Label Grid.Row="1" Grid.Column="3">
                     Label 1, 3
                 </Label>
-                <Label Grid.Row="1" Grid.Column="4" MouseDown="Label_MouseDown">
+                <Label Grid.Row="1" Grid.Column="4">
                     Label 1, 4
                 </Label>
-                <Label Grid.Row="1" Grid.Column="5" MouseDown="Label_MouseDown">
+                <Label Grid.Row="1" Grid.Column="5">
                     Label 1, 5
                 </Label>
-                <Label Grid.Row="1" Grid.Column="6" MouseDown="Label_MouseDown">
+                <Label Grid.Row="1" Grid.Column="6">
                     Label 1, 6
                 </Label>
-                <Label Grid.Row="1" Grid.Column="7" MouseDown="Label_MouseDown">
+                <Label Grid.Row="1" Grid.Column="7">
                     Label 1, 7
                 </Label>
-                <Label Grid.Row="2" Grid.Column="0" MouseDown="Label_MouseDown">
+                <Label Grid.Row="2" Grid.Column="0">
                     Label 2, 0
                 </Label>
-                <Label Grid.Row="2" Grid.Column="1" MouseDown="Label_MouseDown">
+                <Label Grid.Row="2" Grid.Column="1">
                     Label 2, 1
                 </Label>
-                <Label Grid.Row="2" Grid.Column="2" MouseDown="Label_MouseDown">
+                <Label Grid.Row="2" Grid.Column="2">
                     Label 2, 2
                 </Label>
-                <Label Grid.Row="2" Grid.Column="3" MouseDown="Label_MouseDown">
+                <Label Grid.Row="2" Grid.Column="3">
                     Label 2, 3
                 </Label>
-                <Label Grid.Row="2" Grid.Column="4" MouseDown="Label_MouseDown">
+                <Label Grid.Row="2" Grid.Column="4">
                     Label 2, 4
                 </Label>
-                <Label Grid.Row="2" Grid.Column="5" MouseDown="Label_MouseDown">
+                <Label Grid.Row="2" Grid.Column="5">
                     Label 2, 5
                 </Label>
-                <Label Grid.Row="2" Grid.Column="6" MouseDown="Label_MouseDown">
+                <Label Grid.Row="2" Grid.Column="6">
                     Label 2, 6
                 </Label>
-                <Label Grid.Row="2" Grid.Column="7" MouseDown="Label_MouseDown">
+                <Label Grid.Row="2" Grid.Column="7">
                     Label 2, 7
                 </Label>
-                <Label Grid.Row="3" Grid.Column="0" MouseDown="Label_MouseDown">
-                    Label 3, 0   
-                </Label>         
-                <Label Grid.Row="3" Grid.Column="1" MouseDown="Label_MouseDown">
-                    Label 3, 1   
-                </Label>         
-                <Label Grid.Row="3" Grid.Column="2" MouseDown="Label_MouseDown">
-                    Label 3, 2   
-                </Label>         
-                <Label Grid.Row="3" Grid.Column="3" MouseDown="Label_MouseDown">
-                    Label 3, 3   
-                </Label>         
-                <Label Grid.Row="3" Grid.Column="4" MouseDown="Label_MouseDown">
-                    Label 3, 4   
-                </Label>         
-                <Label Grid.Row="3" Grid.Column="5" MouseDown="Label_MouseDown">
-                    Label 3, 5  
-                </Label>         
-                <Label Grid.Row="3" Grid.Column="6" MouseDown="Label_MouseDown">
-                    Label 3, 6   
-                </Label>         
-                <Label Grid.Row="3" Grid.Column="7" MouseDown="Label_MouseDown">
+                <Label Grid.Row="3" Grid.Column="0">
+                    Label 3, 0
+                </Label>
+                <Label Grid.Row="3" Grid.Column="1">
+                    Label 3, 1
+                </Label>
+                <Label Grid.Row="3" Grid.Column="2">
+                    Label 3, 2
+                </Label>
+                <Label Grid.Row="3" Grid.Column="3">
+                    Label 3, 3
+                </Label>
+                <Label Grid.Row="3" Grid.Column="4">
+                    Label 3, 4
+                </Label>
+                <Label Grid.Row="3" Grid.Column="5">
+                    Label 3, 5
+                </Label>
+                <Label Grid.Row="3" Grid.Column="6">
+                    Label 3, 6
+                </Label>
+                <Label Grid.Row="3" Grid.Column="7">
                     Label 3, 7
                 </Label>
-                <Label Grid.Row="4" Grid.Column="0" MouseDown="Label_MouseDown">
+                <Label Grid.Row="4" Grid.Column="0">
                     Label 4, 0
                 </Label>
-                <Label Grid.Row="4" Grid.Column="1" MouseDown="Label_MouseDown">
+                <Label Grid.Row="4" Grid.Column="1">
                     Label 4, 1
                 </Label>
-                <Label Grid.Row="4" Grid.Column="2" MouseDown="Label_MouseDown">
+                <Label Grid.Row="4" Grid.Column="2">
                     Label 4, 2
                 </Label>
-                <Label Grid.Row="4" Grid.Column="3" MouseDown="Label_MouseDown">
+                <Label Grid.Row="4" Grid.Column="3">
                     Label 4, 3
                 </Label>
-                <Label Grid.Row="4" Grid.Column="4" MouseDown="Label_MouseDown">
+                <Label Grid.Row="4" Grid.Column="4">
                     Label 4, 4
                 </Label>
-                <Label Grid.Row="4" Grid.Column="5" MouseDown="Label_MouseDown">
+                <Label Grid.Row="4" Grid.Column="5">
                     Label 4, 5
                 </Label>
-                <Label Grid.Row="4" Grid.Column="6" MouseDown="Label_MouseDown">
+                <Label Grid.Row="4" Grid.Column="6">
                     Label 4, 6
                 </Label>
-                <Label Grid.Row="4" Grid.Column="7" MouseDown="Label_MouseDown">
+                <Label Grid.Row="4" Grid.Column="7">
                     Label 4, 7
                 </Label>
-                <Label Grid.Row="5" Grid.Column="0" MouseDown="Label_MouseDown">
+                <Label Grid.Row="5" Grid.Column="0">
                     Label 5, 0
                 </Label>
-                <Label Grid.Row="5" Grid.Column="1" MouseDown="Label_MouseDown">
+                <Label Grid.Row="5" Grid.Column="1">
                     Label 5, 1
                 </Label>
-                <Label Grid.Row="5" Grid.Column="2" MouseDown="Label_MouseDown">
+                <Label Grid.Row="5" Grid.Column="2">
                     Label 5, 2
                 </Label>
-                <Label Grid.Row="5" Grid.Column="3" MouseDown="Label_MouseDown">
+                <Label Grid.Row="5" Grid.Column="3">
                     Label 5, 3
                 </Label>
-                <Label Grid.Row="5" Grid.Column="4" MouseDown="Label_MouseDown">
+                <Label Grid.Row="5" Grid.Column="4">
                     Label 5, 4
                 </Label>
-                <Label Grid.Row="5" Grid.Column="5" MouseDown="Label_MouseDown">
+                <Label Grid.Row="5" Grid.Column="5">
                     Label 5, 5
                 </Label>
-                <Label Grid.Row="5" Grid.Column="6" MouseDown="Label_MouseDown">
+                <Label Grid.Row="5" Grid.Column="6">
                     Label 5, 6
                 </Label>
-                <Label Grid.Row="5" Grid.Column="7" MouseDown="Label_MouseDown">
+                <Label Grid.Row="5" Grid.Column="7">
                     Label 5, 7
                 </Label>
-                <Label Grid.Row="6" Grid.Column="0" MouseDown="Label_MouseDown">
+                <Label Grid.Row="6" Grid.Column="0">
                     Label 6, 0
                 </Label>
-                <Label Grid.Row="6" Grid.Column="1" MouseDown="Label_MouseDown">
+                <Label Grid.Row="6" Grid.Column="1">
                     Label 6, 1
                 </Label>
-                <Label Grid.Row="6" Grid.Column="2" MouseDown="Label_MouseDown">
+                <Label Grid.Row="6" Grid.Column="2">
                     Label 6, 2
                 </Label>
-                <Label Grid.Row="6" Grid.Column="3" MouseDown="Label_MouseDown">
+                <Label Grid.Row="6" Grid.Column="3">
                     Label 6, 3
                 </Label>
-                <Label Grid.Row="6" Grid.Column="4" MouseDown="Label_MouseDown">
+                <Label Grid.Row="6" Grid.Column="4">
                     Label 6, 4
                 </Label>
-                <Label Grid.Row="6" Grid.Column="5" MouseDown="Label_MouseDown">
+                <Label Grid.Row="6" Grid.Column="5">
                     Label 6, 5
                 </Label>
-                <Label Grid.Row="6" Grid.Column="6" MouseDown="Label_MouseDown">
+                <Label Grid.Row="6" Grid.Column="6">
                     Label 6, 6
                 </Label>
-                <Label Grid.Row="6" Grid.Column="7" MouseDown="Label_MouseDown">
+                <Label Grid.Row="6" Grid.Column="7">
                     Label 6, 7
                 </Label>
-                <Label Grid.Row="7" Grid.Column="0" MouseDown="Label_MouseDown">
+                <Label Grid.Row="7" Grid.Column="0">
                     Label 7, 0
                 </Label>
-                <Label Grid.Row="7" Grid.Column="1" MouseDown="Label_MouseDown">
+                <Label Grid.Row="7" Grid.Column="1">
                     Label 7, 1
                 </Label>
-                <Label Grid.Row="7" Grid.Column="2" MouseDown="Label_MouseDown">
+                <Label Grid.Row="7" Grid.Column="2">
                     Label 7, 2
                 </Label>
-                <Label Grid.Row="7" Grid.Column="3" MouseDown="Label_MouseDown">
+                <Label Grid.Row="7" Grid.Column="3">
                     Label 7, 3
                 </Label>
-                <Label Grid.Row="7" Grid.Column="4" MouseDown="Label_MouseDown">
+                <Label Grid.Row="7" Grid.Column="4">
                     Label 7, 4
                 </Label>
-                <Label Grid.Row="7" Grid.Column="5" MouseDown="Label_MouseDown">
+                <Label Grid.Row="7" Grid.Column="5">
                     Label 7, 5
                 </Label>
-                <Label Grid.Row="7" Grid.Column="6" MouseDown="Label_MouseDown">
+                <Label Grid.Row="7" Grid.Column="6">
                     Label 7, 6
                 </Label>
-                <Label Grid.Row="7" Grid.Column="7" MouseDown="Label_MouseDown">
+                <Label Grid.Row="7" Grid.Column="7">
                     Label 7, 7
                 </Label>
             </Grid>
@@ -237,19 +237,19 @@
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="208" Grid.Column="1"/>
         <Border BorderBrush="Black" BorderThickness="1" Grid.Column="1" HorizontalAlignment="Left" Height="382" Grid.Row="1" VerticalAlignment="Top" Width="208">
             <ListBox x:Name="Tile_Options" Background="White" BorderBrush="White" FontSize="22" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
-                <ListBoxItem Content="Green" Background="#FF65B05E"/>
-                <ListBoxItem Content="Blue" Background="#FF3E68A6"/>
-                <ListBoxItem Content="Black" Foreground="White" Background="Black"/>
-                <ListBoxItem Content="Gray" Background="#FFAEAEAE"/>
-                <ListBoxItem Content="White" Background="White"/>
-                <ListBoxItem Content="Yellow" Background="#FFFFF634"/>
-                <ListBoxItem Content="Pink" Background="#FFFF53E8"/>
-                <ListBoxItem Content="Purple" Background="#FFAC1AD6"/>
-                <ListBoxItem Content="Light Blue" Background="#FF30E5EE"/>
-                <ListBoxItem Content="Light Red" Background="#FFFF6E5F"/>
-                <ListBoxItem Content="Light Green" Background="#FF60FF49"/>
-                <ListBoxItem Content="Dark Red" Background="#FF781717"/>
-                <ListBoxItem Content="Dark Green" Background="#FF2A5F22"/>
+                <ListBoxItem Content="Green" Background="Green" Width="50" Height="50"/>
+                <ListBoxItem Content="Blue" Background="#FF3E68A6" Width="50" Height="50"/>
+                <ListBoxItem Content="Black" Foreground="White" Background="Black" Width="50" Height="50"/>
+                <ListBoxItem Content="Gray" Background="#FFAEAEAE" Width="50" Height="50"/>
+                <ListBoxItem Content="White" Background="White" Width="50" Height="50"/>
+                <ListBoxItem Content="Yellow" Background="#FFFFF634" Width="50" Height="50"/>
+                <ListBoxItem Content="Pink" Background="#FFFF53E8" Width="50" Height="50"/>
+                <ListBoxItem Content="Purple" Background="#FFAC1AD6" Width="50" Height="50"/>
+                <ListBoxItem Content="Light Blue" Background="#FF30E5EE" Width="50" Height="50"/>
+                <ListBoxItem Content="Light Red" Background="#FFFF6E5F" Width="50" Height="50"/>
+                <ListBoxItem Content="Light Green" Background="#FF60FF49" Width="50" Height="50"/>
+                <ListBoxItem Content="Dark Red" Background="#FF781717" Width="50" Height="50"/>
+                <ListBoxItem Content="Dark Green" Background="#FF2A5F22" Width="50" Height="50"/>
             </ListBox>
         </Border>
     </Grid>
