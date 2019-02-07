@@ -7,13 +7,22 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ListBox HorizontalAlignment="Left" Height="100" Margin="0" VerticalAlignment="Top" Width="100" HorizontalContentAlignment="Center">
+        <ListBox HorizontalAlignment="Left" Height="420" Margin="0" VerticalAlignment="Top" Width="100" HorizontalContentAlignment="Center">
             <ListBoxItem Content="ListBoxItem"/>
-            <Border Width="40" Height="40" Margin="0,0,0,0" RenderTransformOrigin="0.473,2.192">
+            <ListBoxItem>
+            <Border Width="40" Height="40" Margin="0,5,0,0" RenderTransformOrigin="0.473,2.192">
                 <Border.Background>
-                    <ImageBrush ImageSource="generic-rpg-tile31.png" Stretch="Fill"/>
+                    <ImageBrush ImageSource="generic-rpg-tile31.png" Stretch="UniformToFill"/>
                 </Border.Background>
             </Border>
+            </ListBoxItem>
+            <ListBoxItem>
+                <Border Width="40" Height="40" Margin="0,5,0,0" RenderTransformOrigin="0.473,2.192">
+                    <Border.Background>
+                        <ImageBrush ImageSource="generic-rpg-Slice.png" Stretch="UniformToFill"/>
+                    </Border.Background>
+                </Border>
+            </ListBoxItem>
         </ListBox>
     </Grid>
 </Window>
