@@ -2,6 +2,7 @@
 
 namespace Serialization
 {
+    [Serializable]
     public class Player
     {
         public string name;

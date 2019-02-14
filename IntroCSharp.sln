@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesterForImages", "TesterFo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Compare", "ConsoleApp2\Compare.csproj", "{CE044B50-FFA8-4116-BAD2-8C32AA368759}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serialization", "Serialization\Serialization.csproj", "{610B4EB3-7ADF-4365-8DB1-B2E94B9AC7C2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serialize", "Serialize\Serialize.csproj", "{38857154-4D41-4FF7-A2DB-86682E293F40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +41,10 @@ Global
 		{CE044B50-FFA8-4116-BAD2-8C32AA368759}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE044B50-FFA8-4116-BAD2-8C32AA368759}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE044B50-FFA8-4116-BAD2-8C32AA368759}.Release|Any CPU.Build.0 = Release|Any CPU
-		{610B4EB3-7ADF-4365-8DB1-B2E94B9AC7C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{610B4EB3-7ADF-4365-8DB1-B2E94B9AC7C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{610B4EB3-7ADF-4365-8DB1-B2E94B9AC7C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{610B4EB3-7ADF-4365-8DB1-B2E94B9AC7C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38857154-4D41-4FF7-A2DB-86682E293F40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38857154-4D41-4FF7-A2DB-86682E293F40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38857154-4D41-4FF7-A2DB-86682E293F40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38857154-4D41-4FF7-A2DB-86682E293F40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
