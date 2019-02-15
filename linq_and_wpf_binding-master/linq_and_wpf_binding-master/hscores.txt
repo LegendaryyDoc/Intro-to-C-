@@ -1,0 +1,24 @@
+﻿Dwarftree,3 ,8304
+Quietcypress,23 ,1344
+Perky,15 ,4128
+Malcuroth Inagolor,8 ,6564
+Kimber,7 ,6912
+Larchgrowl,6 ,7260
+Berneiros Qinfina,5 ,7608
+Julius,9 ,6216
+Dwarftendril,14 ,4476
+Adelis Loraleth,22 ,1692
+Starburst,24 ,996
+Jefnik Ulanelis,17 ,3432
+Erwin,20 ,2388
+Elmshadow,13 ,4824
+Softelm,1 ,9000
+Ertharal Umenelis,4 ,7956
+Mika,19 ,2736
+Izar,12 ,5172
+Mildcypress,18 ,3084
+Rune,10 ,5868
+Elihomin Naethyra,21 ,2040
+Radlas Magroris,11 ,5520
+Anor,2 ,8652
+Wilbur,16 ,3780
