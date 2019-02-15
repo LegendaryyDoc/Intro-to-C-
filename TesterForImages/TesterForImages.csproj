@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -85,6 +88,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -94,12 +98,84 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="generic-rpg-tile31.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="generic-rpg-Slice.png" />
+    <Resource Include="test\generic-rpg-Slice.png" />
+    <Resource Include="test\generic-rpg-tile-waterfall01.png" />
+    <Resource Include="test\generic-rpg-tile-waterfall02.png" />
+    <Resource Include="test\generic-rpg-tile-waterfall03.png" />
+    <Resource Include="test\generic-rpg-tile-waterfall04.png" />
+    <Resource Include="test\generic-rpg-tile-waterfall05.png" />
+    <Resource Include="test\generic-rpg-tile-waterfall06.png" />
+    <Resource Include="test\generic-rpg-tile-waterfall07.png" />
+    <Resource Include="test\generic-rpg-tile01.png" />
+    <Resource Include="test\generic-rpg-tile02.png" />
+    <Resource Include="test\generic-rpg-tile03.png" />
+    <Resource Include="test\generic-rpg-tile04.png" />
+    <Resource Include="test\generic-rpg-tile05.png" />
+    <Resource Include="test\generic-rpg-tile06.png" />
+    <Resource Include="test\generic-rpg-tile07.png" />
+    <Resource Include="test\generic-rpg-tile08.png" />
+    <Resource Include="test\generic-rpg-tile09.png" />
+    <Resource Include="test\generic-rpg-tile10.png" />
+    <Resource Include="test\generic-rpg-tile11.png" />
+    <Resource Include="test\generic-rpg-tile12.png" />
+    <Resource Include="test\generic-rpg-tile13.png" />
+    <Resource Include="test\generic-rpg-tile14.png" />
+    <Resource Include="test\generic-rpg-tile15.png" />
+    <Resource Include="test\generic-rpg-tile16.png" />
+    <Resource Include="test\generic-rpg-tile17.png" />
+    <Resource Include="test\generic-rpg-tile18.png" />
+    <Resource Include="test\generic-rpg-tile19.png" />
+    <Resource Include="test\generic-rpg-tile20.png" />
+    <Resource Include="test\generic-rpg-tile21.png" />
+    <Resource Include="test\generic-rpg-tile22.png" />
+    <Resource Include="test\generic-rpg-tile23.png" />
+    <Resource Include="test\generic-rpg-tile24.png" />
+    <Resource Include="test\generic-rpg-tile25.png" />
+    <Resource Include="test\generic-rpg-tile26.png" />
+    <Resource Include="test\generic-rpg-tile27.png" />
+    <Resource Include="test\generic-rpg-tile28.png" />
+    <Resource Include="test\generic-rpg-tile29.png" />
+    <Resource Include="test\generic-rpg-tile30.png" />
+    <Resource Include="test\generic-rpg-tile31.png" />
+    <Resource Include="test\generic-rpg-tile32.png" />
+    <Resource Include="test\generic-rpg-tile33.png" />
+    <Resource Include="test\generic-rpg-tile34.png" />
+    <Resource Include="test\generic-rpg-tile35.png" />
+    <Resource Include="test\generic-rpg-tile37.png" />
+    <Resource Include="test\generic-rpg-tile38.png" />
+    <Resource Include="test\generic-rpg-tile39.png" />
+    <Resource Include="test\generic-rpg-tile40.png" />
+    <Resource Include="test\generic-rpg-tile41.png" />
+    <Resource Include="test\generic-rpg-tile42.png" />
+    <Resource Include="test\generic-rpg-tile43.png" />
+    <Resource Include="test\generic-rpg-tile44.png" />
+    <Resource Include="test\generic-rpg-tile45.png" />
+    <Resource Include="test\generic-rpg-tile46.png" />
+    <Resource Include="test\generic-rpg-tile47.png" />
+    <Resource Include="test\generic-rpg-tile48.png" />
+    <Resource Include="test\generic-rpg-tile49.png" />
+    <Resource Include="test\generic-rpg-tile50.png" />
+    <Resource Include="test\generic-rpg-tile51.png" />
+    <Resource Include="test\generic-rpg-tile52.png" />
+    <Resource Include="test\generic-rpg-tile53.png" />
+    <Resource Include="test\generic-rpg-tile54.png" />
+    <Resource Include="test\generic-rpg-tile55.png" />
+    <Resource Include="test\generic-rpg-tile56.png" />
+    <Resource Include="test\generic-rpg-tile57.png" />
+    <Resource Include="test\generic-rpg-tile58.png" />
+    <Resource Include="test\generic-rpg-tile59.png" />
+    <Resource Include="test\generic-rpg-tile60.png" />
+    <Resource Include="test\generic-rpg-tile61.png" />
+    <Resource Include="test\generic-rpg-tile62.png" />
+    <Resource Include="test\generic-rpg-tile63.png" />
+    <Resource Include="test\generic-rpg-tile64.png" />
+    <Resource Include="test\generic-rpg-tile65.png" />
+    <Resource Include="test\generic-rpg-tile66.png" />
+    <Resource Include="test\generic-rpg-tile67.png" />
+    <Resource Include="test\generic-rpg-tile68.png" />
+    <Resource Include="test\generic-rpg-tile69.png" />
+    <Resource Include="test\generic-rpg-tile70.png" />
+    <Resource Include="test\generic-rpg-tile71.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
