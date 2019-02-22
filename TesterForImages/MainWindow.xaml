@@ -5,32 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TesterForImages"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Tester For Tool" Height="687" Width="800">
+    <Window.Resources>
+        <DataTemplate x:Key="myTaskTemplate">
+            <Border>
+                <Border.Background>
+                    <ImageBrush ImageSource="{Binding Source = sprite}"/>
+                </Border.Background>
+            </Border>
+        </DataTemplate>
+    </Window.Resources>
+
     <Grid>
-        <ListBox HorizontalAlignment="Left" Height="420" Margin="0" VerticalAlignment="Top" Width="100" HorizontalContentAlignment="Center">
-            <ListBoxItem Content="ListBoxItem"/>
+        <ListBox x:Name="Tiles" HorizontalAlignment="Left" Height="687" Margin="0" VerticalAlignment="Top" Width="100" HorizontalContentAlignment="Center">
             <ListBoxItem>
-                <Border Width="40" Height="40" Margin="0,5,0,0" RenderTransformOrigin="0.473,2.192">
+                <Border Width="40" Height="40" Margin="0,5,0,0" RenderTransformOrigin=".473, 2.192">
                     <Border.Background>
-                        <ImageBrush ImageSource="test/generic-rpg-tile31.png" Stretch="UniformToFill"/>
-                    </Border.Background>
-                </Border>
-            </ListBoxItem>
-            <ListBoxItem>
-                <Border Width="40" Height="40" Margin="0,5,0,0" RenderTransformOrigin="0.473,2.192">
-                    <Border.Background>
-                        <ImageBrush ImageSource="test/generic-rpg-Slice.png" Stretch="UniformToFill"/>
-                    </Border.Background>
-                </Border>
-            </ListBoxItem>
-            <ListBoxItem>
-                <Border Width="40" Height="40" Margin="0,5,0,0" RenderTransformOrigin="0.473,2.192">
-                    <Border.Background>
-                        <ImageBrush ImageSource="test/generic-rpg-tile32.png" Stretch="UniformToFill"/>
+                        <ImageBrush x:Name="ImageHolder" ImageSource="{Binding sprite}"/>
                     </Border.Background>
                 </Border>
             </ListBoxItem>
         </ListBox>
-        <Grid HorizontalAlignment="Left" Height="420" Margin="105,0,0,0" VerticalAlignment="Top" Width="687"/>
+        <Grid x:Name="TileMap"  HorizontalAlignment="Left" Height="687" Margin="105,0,0,0" VerticalAlignment="Top" Width="687" ShowGridLines="True"/>
     </Grid>
 </Window>

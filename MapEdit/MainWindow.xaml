@@ -236,7 +236,7 @@
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="582"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="208" Grid.Column="1"/>
         <Border BorderBrush="Black" BorderThickness="1" Grid.Column="1" HorizontalAlignment="Left" Height="382" Grid.Row="1" VerticalAlignment="Top" Width="208">
-            <ListBox x:Name="Tile_Options" Background="White" BorderBrush="White" FontSize="22" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            <ListBox x:Name="Tile_Options" Background="White" BorderBrush="White" FontSize="22" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="1,1,-1,-1">
                 <ListBoxItem Content="Green" Background="Green" Width="50" Height="50"/>
                 <ListBoxItem Content="Blue" Background="#FF3E68A6" Width="50" Height="50"/>
                 <ListBoxItem Content="Black" Foreground="White" Background="Black" Width="50" Height="50"/>
