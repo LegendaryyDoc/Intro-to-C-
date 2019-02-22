@@ -43,6 +43,13 @@ namespace TesterForImages
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+
+    static public class grid
+    {
+        static public int GridRows = 5;
+        static public int GridCols = 5;
+    };
+
     public partial class MainWindow : Window
     {
         void imageFileNameSaver() // adds files into a file to be loaded back into wpf as a image source
@@ -62,9 +69,6 @@ namespace TesterForImages
         {
             string[] textReader = System.IO.File.ReadAllLines("ImageSources.txt");
             BitmapImage[] myBitMapImage = new BitmapImage[textReader.Length];
-            Setter tileHolder = new Setter();
-            Border LBIBorder = new Border();
-            ImageBrush backGroundColor = new ImageBrush();
 
             for (int i = 0; i < textReader.Length; i++)
             {
@@ -75,41 +79,113 @@ namespace TesterForImages
                     myBitMapImage[i].UriSource = new Uri(textReader[i]);
                     myBitMapImage[i].EndInit();
 
-                    ImageHolder.ImageSource = myBitMapImage[i];
-                } // need to make it so will auto make all the files added
+                    Tiles.Items.Add(myBitMapImage[i]);
+                } 
             }
         }
 
         void gridCreator() // need to add labels to each tile in grid
         {
-            int GridRows = 10;
-            int GridCols = 10;
-            for (int i = 0; i < GridRows; i++)
+
+            for (int i = 0; i < grid.GridRows; i++)
             {
                 RowDefinition gridRow = new RowDefinition();
-                gridRow.Height = new GridLength(TileMap.Height / GridRows);
+                gridRow.Height = new GridLength(40);
 
                 TileMap.RowDefinitions.Add(gridRow);
+                TileMap.SetValue(Grid.RowProperty, i);
             }
 
-            for (int i = 0; i < GridCols; i++)
+            for (int i = 0; i < grid.GridCols; i++)
             {
                 ColumnDefinition gridCol = new ColumnDefinition();
-                gridCol.Width = new GridLength(TileMap.Width / GridCols);
+                gridCol.Width = new GridLength(40);
 
                 TileMap.ColumnDefinitions.Add(gridCol);
+                TileMap.SetValue(Grid.ColumnProperty, i);
             }
 
-            for(int i = 0; i < GridRows; i++)
+           for(int i = 0; i < grid.GridRows; i++)
             {
-                Label nameLabel = new Label();
-                for(int j = 0; j < GridCols; j++)
+                for(int j = 0; j < grid.GridCols; j++)
                 {
-                    nameLabel.Content = i.ToString() + "," + j.ToString(); 
+                    Label gridLabel = new Label();
+                    gridLabel.Content = j.ToString() + "," + i.ToString();
+
+                    Grid.SetRow(gridLabel, i);  
+                    Grid.SetColumn(gridLabel, j);
+                    TileMap.Children.Add(gridLabel);
                 }
-                
             }
         }
+
+        private void TileMap_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if (Tiles.SelectedItem == null)
+            {
+                return;
+            }
+
+            BitmapImage copy = (BitmapImage)(Tiles.SelectedItem);
+            ImageBrush b = new ImageBrush(copy);
+
+            var label = e.Source as Label;
+
+            if (label == null)
+            {
+                return;
+            }
+
+            var row = Grid.GetRow(label);
+            var col = Grid.GetColumn(label);
+
+            int indexNumber = ((int)(row * grid.GridRows) + col);
+
+            (TileMap.Children[indexNumber] as Label).Background = b;
+        }
+                                                                                         // used to only allow numbers to be put into the box
+        private void xButton_PreviewTextInput(object sender, TextCompositionEventArgs e) // used stack overflow to help
+        {
+            var text = sender as TextBox;
+
+            var fullText = xButton.Text.Insert(xButton.SelectionStart, e.Text);
+
+            int val;
+
+            e.Handled = !int.TryParse(fullText, out val);
+
+            if(e.Handled != true)
+            {
+                grid.GridRows = int.Parse(fullText);
+                TileMap.Children.Clear();
+                TileMap.RowDefinitions.Clear();
+                gridCreator();
+            }
+        }
+
+        private void yButton_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            var text = sender as TextBox;
+
+            var fullText = yButton.Text.Insert(yButton.SelectionStart, e.Text);
+
+            double val;
+
+            e.Handled = !double.TryParse(fullText, out val);
+
+            if (e.Handled != true)
+            {
+                grid.GridCols = int.Parse(fullText);
+                TileMap.Children.Clear();
+                TileMap.ColumnDefinitions.Clear();
+                gridCreator();
+            }
+        }
+
+        /*--------------------------------------------------------------------------------------------------*/
+        /*--------------------------------------------------------------------------------------------------*/
+        /*--------------------------------------------------------------------------------------------------*/
+
         public MainWindow()
         {
             InitializeComponent();
