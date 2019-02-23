@@ -20,13 +20,25 @@
     </Window.Resources>
 
     <Grid>
-        <ListBox x:Name="Tiles" HorizontalAlignment="Left" Height="607" Margin="0,35,0,0" VerticalAlignment="Top" Width="100" HorizontalContentAlignment="Center" ItemTemplate="{DynamicResource myTaskTemplate}"></ListBox>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="792"></Border>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Grid Size:" Height="35" Width="100" TextAlignment="Center" FontSize="20" Margin="-1,-1,0,-1" VerticalAlignment="Top"/>
-        <TextBox x:Name="xButton" MaxLength="2" HorizontalAlignment="Left" Height="30" TextWrapping="NoWrap" Text="x" VerticalAlignment="Top" Width="30" Margin="99,2,0,0" TextAlignment="Center" MaxLines="3" MinLines="1" PreviewTextInput="xButton_PreviewTextInput"/>
-        <TextBox x:Name="yButton" MaxLength="2" HorizontalAlignment="Left" Height="30" TextWrapping="NoWrap" Text="y" VerticalAlignment="Top" Width="30" Margin="135,2,0,0" TextAlignment="Center" MaxLines="3" MinLines="1" PreviewTextInput="yButton_PreviewTextInput"/>
-        <ScrollViewer HorizontalAlignment="Left" Height="613" Margin="100,37,0,0" VerticalAlignment="Top" Width="692">
-            <Grid x:Name="TileMap"  HorizontalAlignment="Left" Height="680" Margin="0,0,0,0" VerticalAlignment="Top" Width="680" ShowGridLines="True" MouseUp="TileMap_MouseUp"></Grid>
-        </ScrollViewer>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Border BorderThickness="1" BorderBrush="Black">
+                <Image Stretch="Fill"></Image>
+            </Border>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Grid Size:" Height="35" Width="100" TextAlignment="Center" FontSize="20" Margin="-1,-1,0,-1" VerticalAlignment="Top"/>
+            <TextBox x:Name="xButton" MaxLength="2" HorizontalAlignment="Left" Height="30" TextWrapping="NoWrap" Text="x" VerticalAlignment="Top" Width="30" Margin="99,2,0,0" TextAlignment="Center" MaxLines="3" MinLines="1" PreviewTextInput="xButton_PreviewTextInput"/>
+            <TextBox x:Name="yButton" MaxLength="2" HorizontalAlignment="Left" Height="30" TextWrapping="NoWrap" Text="y" VerticalAlignment="Top" Width="30" Margin="135,2,0,0" TextAlignment="Center" MaxLines="3" MinLines="1" PreviewTextInput="yButton_PreviewTextInput"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <DockPanel>
+                <ListBox x:Name="Tiles" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="100" HorizontalContentAlignment="Center" ItemTemplate="{DynamicResource myTaskTemplate}"></ListBox>
+                <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                    <Grid x:Name="TileMap"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ShowGridLines="True" MouseUp="TileMap_MouseUp"></Grid>
+                </ScrollViewer>
+            </DockPanel>
+        </Grid>
     </Grid>
 </Window>

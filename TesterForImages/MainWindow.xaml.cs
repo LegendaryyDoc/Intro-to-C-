@@ -139,7 +139,7 @@ namespace TesterForImages
             var row = Grid.GetRow(label);
             var col = Grid.GetColumn(label);
 
-            int indexNumber = ((int)(row * grid.GridRows) + col);
+            int indexNumber = ((int)(row * grid.GridCols) + col);
 
             (TileMap.Children[indexNumber] as Label).Background = b;
         }
@@ -156,9 +156,9 @@ namespace TesterForImages
 
             if(e.Handled != true)
             {
-                grid.GridRows = int.Parse(fullText);
+                grid.GridCols = int.Parse(fullText);
                 TileMap.Children.Clear();
-                TileMap.RowDefinitions.Clear();
+                TileMap.ColumnDefinitions.Clear();
                 gridCreator();
             }
         }
@@ -175,9 +175,9 @@ namespace TesterForImages
 
             if (e.Handled != true)
             {
-                grid.GridCols = int.Parse(fullText);
+                grid.GridRows = int.Parse(fullText);
                 TileMap.Children.Clear();
-                TileMap.ColumnDefinitions.Clear();
+                TileMap.RowDefinitions.Clear();
                 gridCreator();
             }
         }
