@@ -30,7 +30,22 @@
             </Border>
             <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Grid Size:" Height="35" Width="100" TextAlignment="Center" FontSize="20" Margin="-1,-1,0,-1" VerticalAlignment="Top"/>
             <TextBox x:Name="xButton" MaxLength="2" HorizontalAlignment="Left" Height="30" TextWrapping="NoWrap" Text="x" VerticalAlignment="Top" Width="30" Margin="99,2,0,0" TextAlignment="Center" MaxLines="3" MinLines="1" PreviewTextInput="xButton_PreviewTextInput"/>
-            <TextBox x:Name="yButton" MaxLength="2" HorizontalAlignment="Left" Height="30" TextWrapping="NoWrap" Text="y" VerticalAlignment="Top" Width="30" Margin="135,2,0,0" TextAlignment="Center" MaxLines="3" MinLines="1" PreviewTextInput="yButton_PreviewTextInput"/>
+            <TextBox x:Name="yButton"  MaxLength="2" HorizontalAlignment="Left" Height="30" TextWrapping="NoWrap" Text="y" VerticalAlignment="Top" Width="30" Margin="135,2,0,0" TextAlignment="Center" MaxLines="3" MinLines="1" PreviewTextInput="yButton_PreviewTextInput"/>
+            <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right">
+                <Menu DockPanel.Dock="Top" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" Width="100" Margin="0,2,5,0">
+                    <MenuItem Header="File" VerticalAlignment="Center" Height="25" Width="100" Margin="0,5,0,0">
+                        <MenuItem Header="_New" />
+                        <MenuItem Header="_Open" />
+                        <MenuItem Header="_Save" HorizontalAlignment="Center">
+                            <Grid x:Name="SaveMenu" Height="50" Width="500">
+                                <TextBox x:Name="SaveName" Height="40" Width="400" Margin="0,0,100,0" TextAlignment="Center" FontSize="18" TextChanged="TextBox_TextChanged"  />
+                                <Button Content="Save" Height="40" Width="60" Margin="0,0,-400,0" Click="Button_Click" />
+                            </Grid>
+                        </MenuItem>
+                        <Separator />
+                    </MenuItem>
+                </Menu>
+            </DockPanel>
         </Grid>
         <Grid Grid.Row="1">
             <DockPanel>

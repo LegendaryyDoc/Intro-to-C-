@@ -47,6 +47,8 @@ namespace TesterForImages
 
     static public class grid // grid properties
     {
+        static public string[] gridTileNames;
+
         static public int GridRows = 5;
         static public int GridCols = 5;
     };
@@ -56,51 +58,30 @@ namespace TesterForImages
         /*   Loading it into a JSON file   */
 
         // file name
-        public string fileName = null;
+        static public string fileName = null;
 
         // grid size
         public int xSize;
         public int ySize;
 
         // contents of the tile
-        public Brush[] imagePath;
-
-        // tile number
-        //public Label tileLabel;
+        public string[] imagePaths;
     };
 
 
     public partial class MainWindow : Window
     {
-        /*void saveToJSONFile()
+        void saveToJSONFile()
         {
             saveToJSON mapSave = new saveToJSON();
-            mapSave.fileName = "test"; // saves file with a certain name
             mapSave.xSize = grid.GridCols; // sets x to be the amount of grid collumns
-            mapSave.ySize = grid.GridRows; // sets y to be the amount of grid rows
-            mapSave.imagePath = new Brush[grid.GridRows * grid.GridRows]; // initializes the amount of brushes to be the amount of tiles in the grid
+            mapSave.ySize = grid.GridRows; // sets y to be the amount of grid rows       
+            mapSave.imagePaths = grid.gridTileNames;
 
-            // need to get all of the images from every tile
-            for(int i = 0; i < grid.GridCols; i++)
-            {
-                mapSave.imagePath[i] = (TileMap.Children[i] as Label).Background; // sets the background brush to be an image path
-            }
+            string json = JsonConvert.SerializeObject(mapSave, Formatting.Indented);
 
-            using (StreamWriter file = File.CreateText("C:/Users/s189065/source/repos/IntroCSharp/TesterForImages/bin/Debug/JSON/" + mapSave.fileName + ".json"))
-            {
-                // grid size
-                // start header
-                string gHeaderStarter = "[Grid Size]";
-
-                // contents
-
-
-                // end header
-                string gHeaderEnd = "[End]";
-
-                // contents of the tile
-            }
-        }*/
+            System.IO.File.WriteAllText("C: /Users/s189065/source/repos/IntroCSharp/TesterForImages/bin/Debug/JSON/" + saveToJSON.fileName + ".txt", json);
+        }
 
         void imageFileNameSaver() // adds files into a file to be loaded back into wpf as a image source
         { 
@@ -136,6 +117,13 @@ namespace TesterForImages
 
         void gridCreator() // generates the grid column, rows, and does the initial labeling of the grid
         {
+            grid.gridTileNames = new string[grid.GridRows * grid.GridCols]; // sets the grid tile path array to be null
+
+            for(int i = 0; i < grid.GridRows * grid.GridCols; i++)
+            {
+                grid.gridTileNames[i] = null;
+            }
+
             for (int i = 0; i < grid.GridRows; i++)
             {
                 RowDefinition gridRow = new RowDefinition();
@@ -197,6 +185,8 @@ namespace TesterForImages
 
             int indexNumber = ((int)(row * grid.GridCols) + col);
 
+            grid.gridTileNames[indexNumber] = copy.ToString();
+
             (TileMap.Children[indexNumber] as Label).Background = b;
         }
                                                                                          // used to only allow numbers to be put into the box
@@ -238,6 +228,19 @@ namespace TesterForImages
             }
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e) // saves the file when the save button is clicked
+        {
+            if (saveToJSON.fileName != null)
+            {
+                saveToJSONFile();
+            }
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            saveToJSON.fileName = SaveName.Text;
+        }
+
         /*--------------------------------------------------------------------------------------------------*/
         /*--------------------------------------------------------------------------------------------------*/
         /*--------------------------------------------------------------------------------------------------*/
@@ -251,8 +254,6 @@ namespace TesterForImages
             //imageFileNameSaver();
 
             gridCreator();
-
-            saveToJSONFile();
         }
     }
 }
