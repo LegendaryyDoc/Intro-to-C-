@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using Newtonsoft.Json;
 
 /*-------------------------------------------------------------------*/
 /*------------------------- TO DO -----------------------------------*/
@@ -44,14 +45,63 @@ namespace TesterForImages
     /// Interaction logic for MainWindow.xaml
     /// </summary>
 
-    static public class grid
+    static public class grid // grid properties
     {
         static public int GridRows = 5;
         static public int GridCols = 5;
     };
 
+    public class saveToJSON // what it needs to save to a file
+    {
+        /*   Loading it into a JSON file   */
+
+        // file name
+        public string fileName = null;
+
+        // grid size
+        public int xSize;
+        public int ySize;
+
+        // contents of the tile
+        public Brush[] imagePath;
+
+        // tile number
+        //public Label tileLabel;
+    };
+
+
     public partial class MainWindow : Window
     {
+        /*void saveToJSONFile()
+        {
+            saveToJSON mapSave = new saveToJSON();
+            mapSave.fileName = "test"; // saves file with a certain name
+            mapSave.xSize = grid.GridCols; // sets x to be the amount of grid collumns
+            mapSave.ySize = grid.GridRows; // sets y to be the amount of grid rows
+            mapSave.imagePath = new Brush[grid.GridRows * grid.GridRows]; // initializes the amount of brushes to be the amount of tiles in the grid
+
+            // need to get all of the images from every tile
+            for(int i = 0; i < grid.GridCols; i++)
+            {
+                mapSave.imagePath[i] = (TileMap.Children[i] as Label).Background; // sets the background brush to be an image path
+            }
+
+            using (StreamWriter file = File.CreateText("C:/Users/s189065/source/repos/IntroCSharp/TesterForImages/bin/Debug/JSON/" + mapSave.fileName + ".json"))
+            {
+                // grid size
+                // start header
+                string gHeaderStarter = "[Grid Size]";
+
+                // contents
+
+
+                // end header
+                string gHeaderEnd = "[End]";
+
+                // contents of the tile
+            }
+        }*/
+
         void imageFileNameSaver() // adds files into a file to be loaded back into wpf as a image source
         { 
             using (StreamWriter a = File.AppendText("ImageSources.txt"))
@@ -84,9 +134,8 @@ namespace TesterForImages
             }
         }
 
-        void gridCreator() // need to add labels to each tile in grid
+        void gridCreator() // generates the grid column, rows, and does the initial labeling of the grid
         {
-
             for (int i = 0; i < grid.GridRows; i++)
             {
                 RowDefinition gridRow = new RowDefinition();
@@ -96,30 +145,37 @@ namespace TesterForImages
                 TileMap.SetValue(Grid.RowProperty, i);
             }
 
-            for (int i = 0; i < grid.GridCols; i++)
+            for (int j = 0; j < grid.GridCols; j++)
             {
                 ColumnDefinition gridCol = new ColumnDefinition();
                 gridCol.Width = new GridLength(40);
 
                 TileMap.ColumnDefinitions.Add(gridCol);
-                TileMap.SetValue(Grid.ColumnProperty, i);
+                TileMap.SetValue(Grid.ColumnProperty, j);
             }
 
-           for(int i = 0; i < grid.GridRows; i++)
-            {
-                for(int j = 0; j < grid.GridCols; j++)
-                {
-                    Label gridLabel = new Label();
-                    gridLabel.Content = j.ToString() + "," + i.ToString();
+            int x = 0; // used for the labels to be used for cords on grid
+            int y = 0; //
 
-                    Grid.SetRow(gridLabel, i);  
-                    Grid.SetColumn(gridLabel, j);
-                    TileMap.Children.Add(gridLabel);
+            for ( int i = 0; i < grid.GridRows * grid.GridRows; i++) // used to help label all of the tiles
+            {
+                if(y == grid.GridCols) // checks to see if the cols are at max
+                {
+                    ++x; // adds onto x
+                    y = 0; // resets y
                 }
+
+                Label finalLabel = new Label();
+                finalLabel.Content = x.ToString() + "," + y.ToString();
+                Grid.SetRow(finalLabel, x);
+                Grid.SetColumn(finalLabel, y);
+                TileMap.Children.Add(finalLabel);
+
+                ++y; // adds onto the col number
             }
         }
 
-        private void TileMap_MouseUp(object sender, MouseButtonEventArgs e)
+        private void TileMap_MouseUp(object sender, MouseButtonEventArgs e) // used to copy the contents to the tilemap
         {
             if (Tiles.SelectedItem == null)
             {
@@ -163,7 +219,7 @@ namespace TesterForImages
             }
         }
 
-        private void yButton_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        private void yButton_PreviewTextInput(object sender, TextCompositionEventArgs e) // changes the TextBox for the Y cords for the graph
         {
             var text = sender as TextBox;
 
@@ -186,7 +242,7 @@ namespace TesterForImages
         /*--------------------------------------------------------------------------------------------------*/
         /*--------------------------------------------------------------------------------------------------*/
 
-        public MainWindow()
+        public MainWindow() // main window of the game
         {
             InitializeComponent();
 
@@ -195,6 +251,8 @@ namespace TesterForImages
             //imageFileNameSaver();
 
             gridCreator();
+
+            saveToJSONFile();
         }
     }
 }
