@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using Newtonsoft.Json;
+using Microsoft.Win32;
 
 /*-------------------------------------------------------------------*/
 /*------------------------- TO DO -----------------------------------*/
@@ -45,9 +46,11 @@ namespace TesterForImages
     /// Interaction logic for MainWindow.xaml
     /// </summary>
 
-    static public class grid // grid properties
+    public class grid // grid properties
     {
         static public string[] gridTileNames;
+
+        public string[] holderForGridTileNames;
 
         static public int GridRows = 5;
         static public int GridCols = 5;
@@ -68,10 +71,17 @@ namespace TesterForImages
         public string[] imagePaths;
     };
 
+    /*--------------------------------------------------------------------------------------------------*/
+    /*--------------------------------------------------------------------------------------------------*/
+    /*--------------------------------------------------------------------------------------------------*/
 
     public partial class MainWindow : Window
     {
-        void saveToJSONFile()
+        /*--------------------------------------------------------------------------------------------------*/
+        /*------------------------------------ Map Loader and Saver ----------------------------------------*/
+        /*--------------------------------------------------------------------------------------------------*/
+
+        void saveToJSONFile() // serializes into a json file and then stores it into a text file
         {
             saveToJSON mapSave = new saveToJSON();
             mapSave.xSize = grid.GridCols; // sets x to be the amount of grid collumns
@@ -82,6 +92,50 @@ namespace TesterForImages
 
             System.IO.File.WriteAllText("C: /Users/s189065/source/repos/IntroCSharp/TesterForImages/bin/Debug/JSON/" + saveToJSON.fileName + ".txt", json);
         }
+
+        void loadMap() // can load a saved json file back into the map
+        {
+            string filePathContents = null;
+            OpenFileDialog opf = new OpenFileDialog();
+            if(opf.ShowDialog() == true)
+            {
+                filePathContents = File.ReadAllText(opf.FileName);
+            }
+
+            if(filePathContents == null)
+            {
+                return;
+            }
+
+            saveToJSON json = JsonConvert.DeserializeObject<saveToJSON>(filePathContents);
+
+            grid.GridCols = json.xSize;
+            grid.GridRows = json.ySize;
+            grid.gridTileNames = json.imagePaths;
+
+            TileMap.Children.Clear();
+            TileMap.RowDefinitions.Clear();
+            TileMap.ColumnDefinitions.Clear();
+            gridCreator(true);
+
+            for (int i = 0; i < grid.GridCols * grid.GridRows; i++)
+            {
+                if (grid.gridTileNames[i] != null)
+                {
+                    BitmapImage copy = new BitmapImage();
+                    copy.BeginInit();
+                    copy.UriSource = new Uri(grid.gridTileNames[i]);
+                    copy.EndInit();
+                    ImageBrush b = new ImageBrush(copy);
+
+                    (TileMap.Children[i] as Label).Background = b;
+                }
+            }
+        }
+
+        /*--------------------------------------------------------------------------------------------------*/
+        /*--------------------------------------------------------------------------------------------------*/
+        /*--------------------------------------------------------------------------------------------------*/
 
         void imageFileNameSaver() // adds files into a file to be loaded back into wpf as a image source
         { 
@@ -115,13 +169,11 @@ namespace TesterForImages
             }
         }
 
-        void gridCreator() // generates the grid column, rows, and does the initial labeling of the grid
+        void gridCreator(bool skipInit = false) // generates the grid column, rows, and does the initial labeling of the grid
         {
-            grid.gridTileNames = new string[grid.GridRows * grid.GridCols]; // sets the grid tile path array to be null
-
-            for(int i = 0; i < grid.GridRows * grid.GridCols; i++)
+            if (skipInit != true)
             {
-                grid.gridTileNames[i] = null;
+                grid.gridTileNames = new string[grid.GridCols * grid.GridRows];
             }
 
             for (int i = 0; i < grid.GridRows; i++)
@@ -142,24 +194,16 @@ namespace TesterForImages
                 TileMap.SetValue(Grid.ColumnProperty, j);
             }
 
-            int x = 0; // used for the labels to be used for cords on grid
-            int y = 0; //
-
-            for ( int i = 0; i < grid.GridRows * grid.GridRows; i++) // used to help label all of the tiles
+            for(int i = 0; i < grid.GridRows; i++)
             {
-                if(y == grid.GridCols) // checks to see if the cols are at max
+                for (int j = 0; j < grid.GridCols; j++)
                 {
-                    ++x; // adds onto x
-                    y = 0; // resets y
+                    Label finalLabel = new Label();
+                    finalLabel.Content = j.ToString() + "," + i.ToString();
+                    Grid.SetColumn(finalLabel, j);
+                    Grid.SetRow(finalLabel, i);
+                    TileMap.Children.Add(finalLabel);
                 }
-
-                Label finalLabel = new Label();
-                finalLabel.Content = x.ToString() + "," + y.ToString();
-                Grid.SetRow(finalLabel, x);
-                Grid.SetColumn(finalLabel, y);
-                TileMap.Children.Add(finalLabel);
-
-                ++y; // adds onto the col number
             }
         }
 
@@ -236,9 +280,14 @@ namespace TesterForImages
             }
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e) // checks if the save name box has changed so it can store the name
         {
             saveToJSON.fileName = SaveName.Text;
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e) // checks if the open option button has been clicked
+        {
+            loadMap();
         }
 
         /*--------------------------------------------------------------------------------------------------*/
