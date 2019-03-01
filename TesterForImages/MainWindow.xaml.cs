@@ -90,7 +90,7 @@ namespace TesterForImages
 
             string json = JsonConvert.SerializeObject(mapSave, Formatting.Indented);
 
-            System.IO.File.WriteAllText("C: /Users/s189065/source/repos/IntroCSharp/TesterForImages/bin/Debug/JSON/" + saveToJSON.fileName + ".txt", json);
+            System.IO.File.WriteAllText("JSON/" + saveToJSON.fileName + ".txt", json);
         }
 
         void loadMap() // can load a saved json file back into the map
@@ -118,7 +118,7 @@ namespace TesterForImages
             TileMap.ColumnDefinitions.Clear();
             gridCreator(true);
 
-            for (int i = 0; i < grid.GridCols * grid.GridRows; i++)
+            for (int i = 0; i < grid.GridCols * grid.GridRows; i++) // assigns the tiles to be in the map
             {
                 if (grid.gridTileNames[i] != null)
                 {
@@ -137,11 +137,11 @@ namespace TesterForImages
         /*--------------------------------------------------------------------------------------------------*/
         /*--------------------------------------------------------------------------------------------------*/
 
-        void imageFileNameSaver() // adds files into a file to be loaded back into wpf as a image source
+        void imageFileNameSaver(string filePath = "/tiles") // adds files into a file to be loaded back into wpf as a image source
         { 
             using (StreamWriter a = File.AppendText("ImageSources.txt"))
             {
-                string[] b = Directory.GetFiles("C:/Users/s189065/source/repos/IntroCSharp/TesterForImages/bin/Debug/tiles");
+                string[] b = Directory.GetFiles(filePath);
                 foreach(string dir in b)
                 {
                     a.WriteLine(dir);
@@ -161,13 +161,17 @@ namespace TesterForImages
                 {
                     myBitMapImage[i] = new BitmapImage();
                     myBitMapImage[i].BeginInit();
-                    myBitMapImage[i].UriSource = new Uri(textReader[i]);
+                    myBitMapImage[i].UriSource = new Uri(System.IO.Path.GetFullPath(textReader[i]));
                     myBitMapImage[i].EndInit();
 
                     Tiles.Items.Add(myBitMapImage[i]);
                 } 
             }
         }
+
+        /*--------------------------------------------------------------------------------------------------*/
+        /*------------------------------------Grid Actions--------------------------------------------------*/
+        /*--------------------------------------------------------------------------------------------------*/
 
         void gridCreator(bool skipInit = false) // generates the grid column, rows, and does the initial labeling of the grid
         {
@@ -272,6 +276,10 @@ namespace TesterForImages
             }
         }
 
+        /*--------------------------------------------------------------------------------------------------*/
+        /*----------------------------------------Object Actions--------------------------------------------*/
+        /*--------------------------------------------------------------------------------------------------*/
+
         private void Button_Click(object sender, RoutedEventArgs e) // saves the file when the save button is clicked
         {
             if (saveToJSON.fileName != null)
@@ -290,8 +298,48 @@ namespace TesterForImages
             loadMap();
         }
 
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e) // mouse click for import images to allow for the import of one image at a time
+        {
+            string filePath = null;
+            OpenFileDialog opf = new OpenFileDialog(); // opens a windows explorer
+
+            // add a filter to the OpenFileDialog to only show images
+            opf.DefaultExt = ".png";
+            opf.Filter = "PNG Files (*.png)|*.png|JPEG Files (*.jpeg)|*.jpeg|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif"; // got help from stackoverflow
+
+            if (opf.ShowDialog() == true)
+            {
+                filePath = opf.FileName;
+                //filePathContents = Directory.GetFiles(filePath); // get the contents
+
+                string fileToCopy = filePath;
+                string fileToCopyName = System.IO.Path.GetFileName(fileToCopy);
+
+                string destinationDirectory = @"./tiles/" + fileToCopyName;
+
+                if(destinationDirectory == fileToCopy)
+                {
+                    return;
+                }
+
+                File.Copy(fileToCopy, destinationDirectory);
+
+                using (StreamWriter a = File.AppendText("ImageSources.txt"))
+                {
+                    a.WriteLine(destinationDirectory);
+                    a.Close();
+                }
+                imageSourceLoader();
+            }
+        }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e) // mouse click for importing files of images not just one
+        {
+            
+        }
+
         /*--------------------------------------------------------------------------------------------------*/
-        /*--------------------------------------------------------------------------------------------------*/
+        /*------------------------------------Main Window---------------------------------------------------*/
         /*--------------------------------------------------------------------------------------------------*/
 
         public MainWindow() // main window of the game
@@ -299,8 +347,6 @@ namespace TesterForImages
             InitializeComponent();
 
             imageSourceLoader();
-
-            //imageFileNameSaver();
 
             gridCreator();
         }
