@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.IO;
 using Newtonsoft.Json;
 using Microsoft.Win32;
+using System.Drawing;
 
 using FolderDialog = System.Windows.Forms.FolderBrowserDialog;
 using DResult = System.Windows.Forms.DialogResult;
@@ -87,7 +88,7 @@ namespace TesterForImages
         /*------------------------------------ Map Loader and Saver ----------------------------------------*/
         /*--------------------------------------------------------------------------------------------------*/
 
-        void saveToJSONFile(bool filePath = false) // serializes into a json file and then stores it into a text file
+        void saveToJSONFile() // serializes into a json file and then stores it into a text file
         {
             saveToJSON mapSave = new saveToJSON();
             mapSave.xSize = grid.GridCols; // sets x to be the amount of grid collumns
@@ -96,12 +97,14 @@ namespace TesterForImages
 
             string json = JsonConvert.SerializeObject(mapSave, Formatting.Indented);
 
-            if(filePath == true)
+            if (grid.fromLoaded == true)
             {
-                saveToJSON.fileName = grid.filePathLoadedFrom;
+                System.IO.File.WriteAllText(grid.filePathLoadedFrom, json);
             }
-
-            System.IO.File.WriteAllText("JSON/" + saveToJSON.fileName + ".txt", json);
+            else
+            {
+                System.IO.File.WriteAllText("JSON/" + saveToJSON.fileName + ".txt", json);
+            }
         }
 
         void loadMap() // can load a saved json file back into the map
@@ -119,7 +122,7 @@ namespace TesterForImages
             }
 
             grid.fromLoaded = true;
-            grid.filePathLoadedFrom = filePathContents;
+            grid.filePathLoadedFrom = opf.FileName;
 
             saveToJSON json = JsonConvert.DeserializeObject<saveToJSON>(filePathContents);
 
@@ -304,11 +307,9 @@ namespace TesterForImages
 
         private void MenuItem_Click_3(object sender, RoutedEventArgs e) // saves the item to the same filepath it was loaded from
         {
-            
-
             if (grid.fromLoaded == true)
             {
-                saveToJSONFile(true);
+                saveToJSONFile();
             }
             else
             {
@@ -364,9 +365,10 @@ namespace TesterForImages
 
         private void MenuItem_Click_4(object sender, RoutedEventArgs e) // imorting a folder and will take all of the images from it and load them into the app
         {
-            string[] fileNameDirectories;
-            string fileDirectory = null;
-            FolderDialog fbd = new FolderDialog();
+            bool isAImage = true; // used to check if the directory is able to be used as a image or not
+            string[] fileNameDirectories; // stores all of the directories in the folder that is selected
+            string fileDirectory = null; // holds the folder directory
+            FolderDialog fbd = new FolderDialog(); // opens a new FolderBrowserDialog()
 
             DResult result = fbd.ShowDialog();
             if ( result == DResult.OK) // got help figuring out how to check from c-sharpcorner
@@ -382,11 +384,24 @@ namespace TesterForImages
                     string fileToCopyName = System.IO.Path.GetFileName(fileNameDirectories[i]);
                     string newFileDirectory = @"./tiles/" + fileToCopyName;
 
-                    File.Copy(fileNameDirectories[i], newFileDirectory);
-
-                    if (fileNameDirectories[i] != null)
+                    try // got help to figure out how to check if was a image or not
                     {
-                        a.WriteLine(newFileDirectory);
+                        System.Drawing.Image newImage = System.Drawing.Image.FromFile(fileNameDirectories[i]);    
+                    }
+                    catch(OutOfMemoryException ex)
+                    {
+                        isAImage = false;
+                    }
+
+                    if (isAImage == true)
+                    {
+                        File.Copy(fileNameDirectories[i], newFileDirectory);
+
+
+                        if (fileNameDirectories[i] != null)
+                        {
+                            a.WriteLine(newFileDirectory);
+                        }
                     }
                 }
                 a.Close();
@@ -396,6 +411,7 @@ namespace TesterForImages
 
         private void MenuItem_Click_2(object sender, RoutedEventArgs e) // reset button to allow for creation of new grid without reseting the program
         {
+            grid.fromLoaded = false;
             TileMap.Children.Clear();
             TileMap.RowDefinitions.Clear();
             TileMap.ColumnDefinitions.Clear();
