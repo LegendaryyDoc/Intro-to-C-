@@ -34,10 +34,12 @@
             <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right">
                 <Menu DockPanel.Dock="Top" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" Width="100" Margin="0,2,5,0">
                     <MenuItem Header="File" VerticalAlignment="Center" Height="25" Width="100" Margin="0,5,0,0">
+                        <MenuItem Header="_New Grid" Click="MenuItem_Click_2" />
                         <MenuItem Header="_Import File" Click="MenuItem_Click_1" />
-                        <MenuItem Header="_Import Folder"  />
+                        <MenuItem Header="_Import Folder" Click="MenuItem_Click_4" />
                         <MenuItem Header="_Open" Click="MenuItem_Click" />
-                        <MenuItem Header="_Save" >
+                        <MenuItem Header="_Save" Click="MenuItem_Click_3" />
+                        <MenuItem Header="_New Save" >
                             <Grid x:Name="SaveMenu" Height="50" Width="500">
                                 <TextBox x:Name="SaveName" Height="40" Width="400" Margin="0,0,100,0" TextAlignment="Center" FontSize="18" TextChanged="TextBox_TextChanged"  />
                                 <Button Content="Save" Height="40" Width="60" Margin="0,0,-400,0" Click="Button_Click" />
